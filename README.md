@@ -18,6 +18,10 @@ installable by someone who is not you.
 | [`ship-it`](skills/ship-it/SKILL.md) | Branch, worktree, review battery, PR, CI. Called by `do-task`, useful alone. |
 | [`deploy-rc`](skills/deploy-rc/SKILL.md) | Release-candidate tags, digests, promotion, inventory bump. Refuses to run unless you explicitly enable and ask. |
 | [`weekly-goals`](skills/weekly-goals/SKILL.md) | The shape of a goal someone else can check. Hands off to your own skill for *where* it gets written. |
+| [`explain-system`](skills/explain-system/SKILL.md) | Answers "how does this work" in one sentence first, in plain English, at the altitude asked. Built from 81 real requests to say it shorter or simpler. |
+| [`prove-it`](skills/prove-it/SKILL.md) | Turns "it works" into an artifact someone else can open — screenshots, a passing test, real command output — and always says whether the run was live or mocked. |
+| [`write-to-teammates`](skills/write-to-teammates/SKILL.md) | Drafts a message that gets a real reply: first person, no code identifiers, one concrete detail per topic, one person tagged, and an ask at the end. |
+| [`extract-decisions`](skills/extract-decisions/SKILL.md) | Turns a meeting or a long thread into what was actually settled, who owns it, and what each decision rules out. |
 
 ## Two ideas worth stealing even if you don't install this
 
