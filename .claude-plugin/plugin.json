@@ -1,0 +1,6 @@
+{
+  "name": "vstack",
+  "description": "A working stack: plan the week, run a task end to end, ship it, deploy it. Company specifics live in your own config, not in these skills.",
+  "version": "0.2.0",
+  "author": { "name": "VasPug" }
+}

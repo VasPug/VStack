@@ -1,0 +1,46 @@
+{
+  "//": "Copy to ~/.claude/vstack.config.json and edit. Every key is optional; a skill that finds no config uses the documented default and says so. Nothing company-specific belongs in a VStack skill file — it belongs here.",
+
+  "memoryBank": {
+    "path": "~/company-memory-bank",
+    "ref": "origin/main",
+    "//": "A corpus to read before designing. Skills read from `ref`, never by switching the checkout's branch."
+  },
+
+  "paths": {
+    "worktrees": ".claude/worktrees",
+    "taskWork": "~/.claude/task-work",
+    "//": "worktrees is relative to each repo and should be gitignored there. taskWork is outside every repo, deliberately."
+  },
+
+  "repos": {
+    "//": "Per-repo overrides. Omit a repo to auto-detect its default branch.",
+    "example-repo": { "defaultBranch": "master", "houseReviewSkill": "pr-reviewer" }
+  },
+
+  "ci": {
+    "ignoredChecks": [],
+    "//": "Checks that always fail everywhere and mean nothing. Naming one here is a claim you have verified it, not a way to silence a real failure."
+  },
+
+  "deploy": {
+    "enabled": false,
+    "environment": "devnet",
+    "inventoryRepo": "",
+    "inventoryPath": "",
+    "releaseBranch": "derive",
+    "buildWorkflow": "manual-build.yaml",
+    "//": "enabled:false means deploy-rc refuses to run at all. releaseBranch 'derive' reads the base of recently merged deploy PRs instead of assuming the default branch."
+  },
+
+  "goals": {
+    "publishSkill": "",
+    "//": "Name of a local skill that owns writing goals to wherever they live — a wiki, a tracker, a page. weekly-goals hands off to it and never invents a destination."
+  },
+
+  "browser": {
+    "driver": "chrome-mcp",
+    "testDriver": "playwright-mcp",
+    "//": "driver is for real browsing in your own session. testDriver wants a cold deterministic profile and is used for UI proof."
+  }
+}

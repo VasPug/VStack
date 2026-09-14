@@ -1,30 +1,56 @@
 # VStack
 
-Claude Code skills I actually use.
+A working stack of Claude Code skills: plan the week, run a task end to end,
+ship it, deploy it.
+
+**Nothing company-specific lives in a skill file.** Repo names, hostnames, page
+ids, people, deploy paths — all of it goes in `~/.claude/vstack.config.json`,
+which is yours and stays on your machine. Every key is optional; a skill that
+finds no config uses a documented default and says so. That is what makes these
+installable by someone who is not you.
 
 ## Skills
 
 | Skill | What it does |
 |---|---|
-| [`plan-week`](skills/plan-week/SKILL.md) | Reads a week of your commits, PRs, team chat and last week's goals; interrogates you about what the week is for; **tries to kill your plan before you commit to it**; then writes a short list of outcomes, each with a date and someone else who checks it. |
+| [`plan-week`](skills/plan-week/SKILL.md) | Reads a week of your commits, PRs, team chat and last week's goals; interrogates you about what the week is for; **tries to kill your plan before you commit to it**; writes outcomes with dates and verifiers. |
+| [`do-task`](skills/do-task/SKILL.md) | A goal in, a reviewable PR out. Spec → plan → build → prove → report, with exactly one human gate. |
+| [`ship-it`](skills/ship-it/SKILL.md) | Branch, worktree, review battery, PR, CI. Called by `do-task`, useful alone. |
+| [`deploy-rc`](skills/deploy-rc/SKILL.md) | Release-candidate tags, digests, promotion, inventory bump. Refuses to run unless you explicitly enable and ask. |
+| [`weekly-goals`](skills/weekly-goals/SKILL.md) | The shape of a goal someone else can check. Hands off to your own skill for *where* it gets written. |
 
-### Why `plan-week` has a falsification phase
+## Two ideas worth stealing even if you don't install this
 
-Most planning tools help you write down what you already intended. The expensive
-failure isn't a badly worded goal — it's a well-formed, dated, verifiable goal to
-build something with no subject.
+**`plan-week` has a falsification phase.** Most planning tools help you write
+down what you already intended. The expensive failure is not a badly worded goal
+— it is a well-formed, dated, verifiable goal to build something with no
+subject. On its first real run it produced a clean plan to evaluate routing
+quality in a workflow engine; one grep showed the routing mechanism had zero
+callers. It existed, was unit-tested, and nothing used it. The eval would have
+scored a constant. So: name the cheapest check that would prove the goal
+pointless, and run it before anyone commits a week.
 
-On its first real run it produced a clean plan to evaluate routing quality in a
-workflow engine. One grep showed the routing mechanism had zero callers: it
-existed, was unit-tested, and no production workflow used it. The eval would have
-scored a constant. That's Phase 3 — name the cheapest check that would prove the
-goal pointless, and run it before anyone commits a week.
+**`do-task` has one human gate, on purpose.** The spec. After that it runs to
+completion and reports, rather than asking for approval six more times. The cost
+is that decisions get made without you, so the report carries a `Rulings` line —
+every call made on your behalf and what it costs if wrong. A ruling that dies in
+a worktree was a decision made in secret.
 
 ## Install
 
 ```bash
 git clone https://github.com/VasPug/VStack.git
-ln -s "$PWD/VStack/skills/plan-week" ~/.claude/skills/plan-week
+cp VStack/vstack.config.example.json ~/.claude/vstack.config.json   # then edit
+for s in VStack/skills/*/; do ln -sfn "$PWD/$s" ~/.claude/skills/$(basename $s); done
 ```
 
-Then `/plan-week`, or just say "plan my week".
+Or as a plugin, from the marketplace manifest in `.claude-plugin/`.
+
+## Adding your own
+
+One directory under `skills/`, one `SKILL.md`, frontmatter with `name` and a
+`description` that says *when* to use it rather than what it is — the
+description is the only thing read when deciding whether to load it.
+
+If your skill needs to know something about your company, add a key to the
+config and document it in `vstack.config.example.json`. Do not hardcode it.

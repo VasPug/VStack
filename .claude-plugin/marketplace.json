@@ -1,0 +1,7 @@
+{
+  "name": "vstack",
+  "owner": { "name": "VasPug" },
+  "plugins": [
+    { "name": "vstack", "source": "./", "description": "Plan the week, run a task end to end, ship it, deploy it." }
+  ]
+}

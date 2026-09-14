@@ -101,7 +101,7 @@ which you skipped and why.
    does the most work. Ask it even when it is awkward.
 6. **Verification.** Per goal: "who checks this, and what do they do?" The
    verifier is never them. "Anyone should find it easy to use" is a property, not
-   a check; "Krishna runs it on his own workflow without asking you how" is one.
+   a check; "the teammate who needs it runs it on their own data, unaided" is one.
 7. **Capacity.** "Days actually available?" Then out loud: does the list fit? If
    not, return to rung 2 and cut. Do not shrink goals into vaguer ones.
 
@@ -189,7 +189,7 @@ Rules the format depends on:
 The list is worthless in terminal scrollback.
 
 Check whether a downstream publishing skill owns wherever these goals actually
-live — a wiki, a Notion page, a tracker. If one exists, invoke it and pass this
+live — a wiki, a shared doc, a tracker. If one exists, invoke it and pass this
 output verbatim; that skill owns the destination's format and ids. If none
 exists, write the list to a file and say where.
 
