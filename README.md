@@ -22,6 +22,7 @@ installable by someone who is not you.
 | [`prove-it`](skills/prove-it/SKILL.md) | Turns "it works" into an artifact someone else can open — screenshots, a passing test, real command output — and always says whether the run was live or mocked. |
 | [`write-to-teammates`](skills/write-to-teammates/SKILL.md) | Drafts a message that gets a real reply: first person, no code identifiers, one concrete detail per topic, one person tagged, and an ask at the end. |
 | [`extract-decisions`](skills/extract-decisions/SKILL.md) | Turns a meeting or a long thread into what was actually settled, who owns it, and what each decision rules out. |
+| [`dont-reinvent-the-wheel`](skills/dont-reinvent-the-wheel/SKILL.md) | Before you design it, finds how three existing platforms already solved it, names the shape they converged on, and says what to take. |
 
 ## Two ideas worth stealing even if you don't install this
 
